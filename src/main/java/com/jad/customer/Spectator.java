@@ -1,6 +1,6 @@
 package com.jad.customer;
 
-import com.jad.show.IShow;
+import com.jad.show.*;
 
 public class Spectator implements ISpectator {
     private final String firstName;
@@ -22,7 +22,29 @@ public class Spectator implements ISpectator {
     }
 
     @Override
-    public void watch(final IShow show) {
-        // TODO: Implement this method
+    public void watch(IShow show) {
+        show.watchedBy(this);
+    }
+
+    @Override
+    public void watch(final MovieShow show) {
+        System.out.println("\nJ'ai assisté au film "+show.getName()+" de "+show.getDirector()+" sorti en "+show.getYearOfRelease());
+    }
+
+    @Override
+    public void watch(final StreetShow show) {
+        System.out.println("\nJ'ai assisté au spectacle de rue "+show.getName());
+        System.out.println("Il y a avait : "+String.join(", ", show.getPerformers()));
+    }
+
+    @Override
+    public void watch(final TheaterShow show) {
+        System.out.println("\nJ'ai assisté à la pièce de théâtre "+show.getName()+" de "+show.getDirector());
+        System.out.println("Il y a avait : "+String.join(", ", show.getActors()));
+    }
+
+    @Override
+    public void watch(final ConcertShow show) {
+        System.out.println("\nJ'ai assisté au concert "+show.getName()+" de "+show.getArtist());
     }
 }

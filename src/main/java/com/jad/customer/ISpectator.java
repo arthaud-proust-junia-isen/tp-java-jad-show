@@ -1,6 +1,6 @@
 package com.jad.customer;
 
-import com.jad.show.IShow;
+import com.jad.show.*;
 
 public interface ISpectator {
     String getFirstName();
@@ -8,4 +8,8 @@ public interface ISpectator {
     String getLastName();
 
     void watch(IShow show);
+    void watch(ConcertShow show);
+    void watch(MovieShow show);
+    void watch(StreetShow show);
+    void watch(TheaterShow show);
 }
